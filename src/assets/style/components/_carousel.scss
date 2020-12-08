@@ -1,0 +1,22 @@
+$n: 5;
+$x: 17.5%;
+$y: (100% - $n * $x) / ($n - 1);
+
+@keyframes carousel {
+  @for $i from 0 to $n {
+    $current-frame: ($i * $x) + ($i * $y);
+    $next-frame: (($i + 1) * $x) + ($i + $y);
+
+    #{$current-frame, $next-frame} {
+      transform: translate3d($i * -100% / $frames, 0, 0);
+    }
+
+    $halfway-frame: $i * ($x / 1%) + ($i - 1) * $y + ($y / 2);
+
+    @if $i > 0 {
+      #{$halfway-frame} {
+        filter: blur(2px);
+      }
+    }
+  }
+}
