@@ -1,32 +1,33 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-10-15 22:57:25
+ * @LastEditTime: 2020-12-07 00:11:32
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \self_fraem\src\App.vue
+-->
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <div :class="`btn${item}`" v-for="item in 3" :key="'btn' + item">这是一个按钮</div>
     <router-view />
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+  width: calc(100% - 80px);
+  margin: 0 auto;
 }
+$btns: (
+  btn1: #409eff,
+  btn2: #67c23a,
+  btn3: #f56c6c,
+);
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+@each $keys, $values in $btns {
+  .#{$keys} {
+    margin-top: 0.5em;
+    @include el-btn($values);
   }
 }
 </style>
