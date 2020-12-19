@@ -3,17 +3,18 @@ import store from '@/store'
 import router from '@/router'
 
 import {
-    message
-} from 'ant-design-vue'
+    Message
+} from 'element-ui'
 
 const SUCCESS = 'success'
 const ERROR = 'error'
 const LOAD = 'loading'
-const ONLY_KEY = 'only_key'
 const MSG_FUNC = (type = SUCCESS, content) => {
-    message[type]({
-        content,
-        key: ONLY_KEY
+    console.log(Message);
+    console.log(content);
+    Message({
+        type: type,
+        message: content
     })
 }
 
@@ -31,7 +32,7 @@ axios.interceptors.request.use(config => {
 // 响应拦截器
 axios.interceptors.response.use(res => {
     const { data } = res
-    if(data.resultCode === 401){
+    if (data.resultCode === 401) {
         MSG_FUNC(ERROR, 'token超时，请重新登陆!')
         router.replace('/login')
         //清除用户信息、状态信息

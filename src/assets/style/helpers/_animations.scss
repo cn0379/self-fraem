@@ -1,0 +1,29 @@
+// 第一个参数 父级盒子 子级盒子 数量 动画名字
+@mixin scroll ($out-container,$inner-container,$count,$name:'scroll') {
+  
+  @at-root {
+    @for $i from 1 through $count {
+      &:nth-child(#{$i}) {
+        & #{$out-container} {
+  
+          // animation: valFilter 0.2s #{($i - 1) * 0.2}s ease-in-out forwards;
+          & #{$inner-container}{
+            animation: $name 0.2s #{($i - 1) * 0.3}s ease-in-out infinite;
+          }
+        } 
+      }
+    }
+  
+    @keyframes #{$name} {
+      100% {
+        transform: translate(0, -90%);
+      }
+    }
+  
+    @keyframes valFilter {
+      100% {
+        filter: blur(2px);
+      }
+    }
+  }
+}

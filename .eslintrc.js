@@ -27,12 +27,6 @@ module.exports = {
     es6: true,
   },
   globals: {
-    ttxVideoAll: true, // 执法记录仪全局对象
-    swfobject: true, // 执法记录仪全局对象
-    CaseProgress: true,// 案件汇总全局对象
-    Progress: true, // 双随机抽查全局对象
-    tim: true,
-    TIM: true
   },
   extends: ['plugin:vue/recommended', 'eslint:recommended'],
   // add your custom rules here

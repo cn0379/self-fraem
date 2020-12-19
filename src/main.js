@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-15 22:57:25
- * @LastEditTime: 2020-11-29 23:44:46
+ * @LastEditTime: 2020-12-17 22:52:03
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \self_fraem\src\main.js
@@ -12,7 +12,9 @@ import router from '@/router'
 import store from '@/store'
 import * as filters from '@/filters'
 import * as directives from '@/directives'
+
 import '@/plugins/element-ui-vue'
+import '@/mock'
 
 // 白屏过渡
 import { preloaderFinished } from '@/utils/preload'
